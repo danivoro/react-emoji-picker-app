@@ -1,25 +1,70 @@
-import logo from './logo.svg';
+import { useState } from "react";
 import './App.css';
+import React from "react";
 
-function App() {
+function TransportPicker(){
+  const [transportValueFromCurrentRender, queueRerenderWithNewMoodValue] =
+    useState("🚶");
+  
+  const [previousTransportValue, setPreviousTransportValue] = useState("");
+
+  const handleTransportChangeToCar = () => {
+    const nextMood = "🚗";
+    queueRerenderWithNewMoodValue(nextMood);
+    setPreviousTransportValue(transportValueFromCurrentRender)
+  };
+
+  const handleTransportChangeToVespa = () => {
+    const nextMood = "🛵";
+    queueRerenderWithNewMoodValue(nextMood);
+    setPreviousTransportValue(transportValueFromCurrentRender)
+  };
+
+  const handleTransportChangeToShip = () => {
+    const nextMood = "🚢";
+    queueRerenderWithNewMoodValue(nextMood);
+    setPreviousTransportValue(transportValueFromCurrentRender)
+  };
+
+  const handleTransportChangeToBike = () => {
+    const nextMood = "🚲";
+    queueRerenderWithNewMoodValue(nextMood);
+    setPreviousTransportValue(transportValueFromCurrentRender)
+  };
+
+  const handleTransportChangeToHelicopter = () => {
+    const nextMood = "🚁";
+    queueRerenderWithNewMoodValue(nextMood);
+    setPreviousTransportValue(transportValueFromCurrentRender)
+  };
+
+  const handleTransportChangeToUfo = () => {
+    const nextMood = "🛸";
+    queueRerenderWithNewMoodValue(nextMood);
+    setPreviousTransportValue(transportValueFromCurrentRender)
+  };
+
+  console.log(
+    "Component is rendering with a mood value of",
+    transportValueFromCurrentRender
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Transport Picker</h1>
+      <p>Previous Transport:{previousTransportValue}</p>
+      <p>Chosen transport: <span className="default">{transportValueFromCurrentRender}</span></p>
+      <p className="choose">Choose your favourite transport type:</p>
+      <div className="button-container">
+      <button onClick={handleTransportChangeToCar}>🚗</button>
+      <button onClick={handleTransportChangeToVespa}>🛵</button>
+      <button onClick={handleTransportChangeToShip}>🚢</button>
+      <button onClick={handleTransportChangeToBike}>🚲</button>
+      <button onClick={handleTransportChangeToHelicopter}>🚁</button>
+      <button onClick={handleTransportChangeToUfo}>🛸</button>
+      </div>
+    </>
   );
 }
 
-export default App;
+export default TransportPicker;
