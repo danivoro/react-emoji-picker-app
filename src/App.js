@@ -3,72 +3,54 @@ import './App.css';
 import React from "react";
 
 function TransportPicker(){
-  const [transportValueFromCurrentRender, queueRerenderWithNewMoodValue] =
+
+//TRANSPORT SECTION
+
+  const [transportValueFromCurrentRender, setTransportValueFromCurrentRender] =
     useState("🚶");
-  
-  const [previousTransportValue, setPreviousTransportValue] = useState("");
+  ;
 
-  const handleTransportChangeToCar = () => {
-    const nextMood = "🚗";
-    queueRerenderWithNewMoodValue(nextMood);
-    setPreviousTransportValue(transportValueFromCurrentRender)
+  const handleTransportChange = (nextTransport) => {
+    setTransportValueFromCurrentRender(nextTransport);
   };
 
-  const handleTransportChangeToVespa = () => {
-    const nextMood = "🛵";
-    queueRerenderWithNewMoodValue(nextMood);
-    setPreviousTransportValue(transportValueFromCurrentRender)
-  };
+//ANIMALS SECTION
 
-  const handleTransportChangeToShip = () => {
-    const nextMood = "🚢";
-    queueRerenderWithNewMoodValue(nextMood);
-    setPreviousTransportValue(transportValueFromCurrentRender)
-  };
+  const [animalValueFromCurrentRender, setAnimalValueFromCurrentRender] =
+    useState("🚶");
+  ;
 
-  const handleTransportChangeToBike = () => {
-    const nextMood = "🚲";
-    queueRerenderWithNewMoodValue(nextMood);
-    setPreviousTransportValue(transportValueFromCurrentRender)
-  };
-
-  const handleTransportChangeToHelicopter = () => {
-    const nextMood = "🚁";
-    queueRerenderWithNewMoodValue(nextMood);
-    setPreviousTransportValue(transportValueFromCurrentRender)
-  };
-
-  const handleTransportChangeToUfo = () => {
-    const nextMood = "🛸";
-    queueRerenderWithNewMoodValue(nextMood);
-    setPreviousTransportValue(transportValueFromCurrentRender)
-  };
-
-  const handleTransportChangeToTrain = () => {
-    const nextMood = "🚂";
-    queueRerenderWithNewMoodValue(nextMood);
-    setPreviousTransportValue(transportValueFromCurrentRender)
+  const handleAnimalChange = (nextTransport) => {
+    setAnimalValueFromCurrentRender(nextTransport);
   };
 
   console.log(
-    "Component is rendering with a mood value of",
+    "Component is rendering with an animal value of",
     transportValueFromCurrentRender
   );
 
   return (
     <>
       <h1>Transport Picker</h1>
-      <p>Previous Transport:{previousTransportValue}</p>
-      <p>Chosen transport: <span className="default">{transportValueFromCurrentRender}</span></p>
+      <p>Your transport: <span className="default">{transportValueFromCurrentRender}</span></p>
       <p className="choose">Choose your favourite transport type:</p>
       <div className="button-container">
-      <button onClick={handleTransportChangeToCar}>🚗</button>
-      <button onClick={handleTransportChangeToVespa}>🛵</button>
-      <button onClick={handleTransportChangeToShip}>🚢</button>
-      <button onClick={handleTransportChangeToBike}>🚲</button>
-      <button onClick={handleTransportChangeToHelicopter}>🚁</button>
-      <button onClick={handleTransportChangeToUfo}>🛸</button>
-      <button onClick={handleTransportChangeToTrain}>🚂</button>
+      <button onClick={() => handleTransportChange("🚗")}>🚗</button>
+      <button onClick={() => handleTransportChange("🛵")}>🛵</button>
+      <button onClick={() => handleTransportChange("🚢")}>🚢</button>
+      <button onClick={() => handleTransportChange("🚲")}>🚲</button>
+      <button onClick={() => handleTransportChange("🚁")}>🚁</button>
+      <button onClick={() => handleTransportChange("🛸")}>🛸</button>
+      </div>
+      <p>Your animal: <span className="default">{animalValueFromCurrentRender}</span></p>
+      <p className="choose">Choose your favourite animal:</p>
+      <div className="button-container">
+      <button onClick={() => handleAnimalChange("🐒")}>🐒</button>
+      <button onClick={() => handleAnimalChange("🦅")}>🦅</button>
+      <button onClick={() => handleAnimalChange("🦈")}>🦈</button>
+      <button onClick={() => handleAnimalChange("🐨")}>🐨</button>
+      <button onClick={() => handleAnimalChange("🐉")}>🐉</button>
+      <button onClick={() => handleAnimalChange("🦄")}>🦄</button>
       </div>
     </>
   );
