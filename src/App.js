@@ -44,6 +44,12 @@ function TransportPicker(){
     setPreviousTransportValue(transportValueFromCurrentRender)
   };
 
+  const handleTransportChangeToTrain = () => {
+    const nextMood = "🚂";
+    queueRerenderWithNewMoodValue(nextMood);
+    setPreviousTransportValue(transportValueFromCurrentRender)
+  };
+
   console.log(
     "Component is rendering with a mood value of",
     transportValueFromCurrentRender
@@ -62,6 +68,7 @@ function TransportPicker(){
       <button onClick={handleTransportChangeToBike}>🚲</button>
       <button onClick={handleTransportChangeToHelicopter}>🚁</button>
       <button onClick={handleTransportChangeToUfo}>🛸</button>
+      <button onClick={handleTransportChangeToTrain}>🚂</button>
       </div>
     </>
   );
